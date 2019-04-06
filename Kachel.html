@@ -17,6 +17,49 @@
     .card:hover .card-img-top {
         opacity: 0.3;
 
+
+    }
+    .modal {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        display: none;
+
+         /* not to be seen by default */
+        position: fixed; /* Stay at the same place */
+        z-index: 1; /* one stack over */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.3);
+
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: white;
+        margin: auto;
+        padding: 20px;
+        border:1px solid #aaaaaa;
+        width:50% ;
+    }
+
+    /* The Close Button */
+    .close {
+        color: gray;
+        float: left;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
     }
 
 </style>
@@ -36,21 +79,55 @@
                 $('.icon').hide();
             })
 
+
+
+
         </script>
         <!-- ioon boostrap glyphicon-->
         <div class="icon">
-        <a href="#">
+        <a class="download" href="">
             <span class="glyphicon glyphicon-download-alt"></span>
         </a>
-        <a href="#">
+
+        <a class="delete" href="#">
             <span class="glyphicon glyphicon-trash"></span>
         </a>
         <a href="#">
-            <span class="glyphicon glyphicon-share-alt"></span>
+            <span class="glyphicon glyphicon-share-alt" id="share"></span>
         </a>
         </div>
     </div>
 </div>
+<!-- Modal für die Freigabe-->
+<div id="FreigabeModal" class="modal">
+    <!--Modal content-->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="" method="post">
+            Für andere freigeben <br>
+            Personen
+            <input type="text" name="email"><br>
+            <input type="button" value="senden">
+
+        </form>
+
+    </div>
+</div>
+<script>
+    //!--to get the share icon and set the funktion to flex the modal--!//
+   document.getElementById('share').addEventListener('click',
+function () {
+       document.querySelector('.modal').style.display = 'flex';
+
+});
+   document.querySelector('.close')
+       .addEventListener('click',
+           function () {
+               document.querySelector('.modal').style.display = 'none';
+
+           });
+    document.querySelector('.close')
+</script>
 
 
 </body>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+    /* Hover effeckt für das Bild in der Karte*/
+    .card:hover .card-img-top {
+        opacity: 0.3;
+
+
+    }
+    .modal {
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        display: none;
+
+         /* not to be seen by default */
+        position: fixed; /* Stay at the same place */
+        z-index: 1; /* one stack over */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.3);
+
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: white;
+        margin: auto;
+        padding: 20px;
+        border:1px solid #aaaaaa;
+        width:50% ;
+    }
+
+    /* The Close Button */
+    .close {
+        color: gray;
+        float: left;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+<!-- Boostrap Card für die hochgeladenen Dokumente-->
+<div class="card" style="width: 360px;">
+    <img class="card-img-top" src="paper.jpg" alt= "dokument">
+    <div class="card-body">
+        <h5 class="card-titled">Dokumentname</h5>
+        <!--hide and show Effekt für die Icons-->
+        <script>
+            $('.card')
+                .mouseover(function() {
+                $('.icon').show();
+            })
+                .mouseout(function() {
+                $('.icon').hide();
+            })
+
+
+
+
+        </script>
+        <!-- ioon boostrap glyphicon-->
+        <div class="icon">
+        <a class="download" href="">
+            <span class="glyphicon glyphicon-download-alt"></span>
+        </a>
+
+        <a class="delete" href="#">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        <a href="#">
+            <span class="glyphicon glyphicon-share-alt" id="share"></span>
+        </a>
+        </div>
+    </div>
+</div>
+<!-- Modal für die Freigabe-->
+<div id="FreigabeModal" class="modal">
+    <!--Modal content-->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="" method="post">
+            Für andere freigeben <br>
+            Personen
+            <input type="text" name="email"><br>
+            <input type="button" value="senden">
+
+        </form>
+
+    </div>
+</div>
+<script>
+    //!--to get the share icon and set the funktion to flex the modal--!//
+   document.getElementById('share').addEventListener('click',
+function () {
+       document.querySelector('.modal').style.display = 'flex';
+
+});
+   document.querySelector('.close')
+       .addEventListener('click',
+           function () {
+               document.querySelector('.modal').style.display = 'none';
+
+           });
+    document.querySelector('.close')
+</script>
+
+
+</body>
+</html>

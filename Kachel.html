@@ -70,19 +70,7 @@
     <div class="card-body">
         <h5 class="card-titled">Dokumentname</h5>
         <!--hide and show Effekt für die Icons-->
-        <script>
-            $('.card')
-                .mouseover(function() {
-                $('.icon').show();
-            })
-                .mouseout(function() {
-                $('.icon').hide();
-            })
 
-
-
-
-        </script>
         <!-- ioon boostrap glyphicon-->
         <div class="icon">
         <a class="download" href="">
@@ -114,7 +102,27 @@
     </div>
 </div>
 <script>
-    //!--to get the share icon and set the funktion to flex the modal--!//
+    // call and hide the icons on the card
+    $(document).ready(function(){
+        $(".card")
+            .mouseover(function(){
+            $(".icon").show();})
+            .mouseout(function(){
+            $(".icon").hide();
+        });
+
+    });
+    //click the share i con and call the modal
+    $(document).ready(function(){
+        $("#share").click(function(){
+            $(".modal").show();
+        });
+        $(".close").click(function(){
+            $(".modal").hide();
+        });
+
+    });
+   /* second version to call the modal
    document.getElementById('share').addEventListener('click',
 function () {
        document.querySelector('.modal').style.display = 'flex';
@@ -127,8 +135,8 @@ function () {
 
            });
     document.querySelector('.close')
+    */
 </script>
-
 
 </body>
 </html>

@@ -40,6 +40,8 @@
 
     /* Modal Content */
     .modal-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr 2fr 1fr;
         background-color: white;
         margin: auto;
         padding: 20px;
@@ -49,6 +51,7 @@
 
     /* The Close Button */
     .close {
+        grid-column: 4/5;
         color: gray;
         font-size: 30px;
         font-weight: bold;
@@ -59,6 +62,10 @@
         color: red;
         text-decoration: none;
         cursor: pointer;
+    }
+    .formwrap{
+        grid-column: 1/4;
+
     }
 
 </style>
@@ -90,14 +97,19 @@
     <!--Modal content-->
     <div class="modal-content">
             <span class="close">&times;</span>
-        <form action="" method="post">
+            <div class="formwrap">
+                <form action="" method="post">
+
             Für andere freigeben <br><br>
             Personen
-            <input type="text" name="emailorusername"><br><br>
-            <input type="button" style=" background-color: #008CBA;border:none;color: white;padding: 10px;display:inline-block;text-decoration: none;"
-                   value="senden">
 
-        </form>
+            <input type="text" name="emailorusername" autocomplete="on" placeholder="email or username"><br><br>
+            <input type="button" style="background-color: #008CBA;border:none;color: white;padding: 10px;
+            display:inline-block;text-decoration: none;"
+                   value="senden">
+                </form>
+            </div>
+
 
     </div>
 </div>

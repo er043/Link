@@ -42,11 +42,12 @@
     .modal-content {
         display: grid;
         grid-template-columns: 1fr 2fr 2fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
         background-color: white;
         margin: auto;
         padding: 20px;
         border:1px solid #aaaaaa;
-        width:20% ;
+        width:40% ;
     }
 
     /* The Close Button */
@@ -67,6 +68,9 @@
         grid-column: 1/4;
 
     }
+    .text{
+        grid-column: 1/5;
+    }
 
 </style>
 <body>
@@ -83,13 +87,24 @@
             <span class="glyphicon glyphicon-download-alt"></span>
         </a>
 
-        <a class="delete" href="#">
-            <span class="glyphicon glyphicon-trash"></span>
+        <a href="#" class="delete">
+            <span class="glyphicon glyphicon-trash" ></span>
         </a>
-        <a href="#">
-            <span class="glyphicon glyphicon-share-alt" id="share"></span>
+        <a href="#" class="share">
+            <span class="glyphicon glyphicon-share-alt"></span>
         </a>
         </div>
+    </div>
+</div>
+<!--Modal fürs Löschen-->
+<div id="deletemodal" class="modal">
+    <!--Modal content-->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="text">Diese Datei Löschen?</div>
+        <button type="button" class="btn btn-danger" id="j" style="width: 50px">Ja</button>
+        <button type="button" class="btn btn-danger" id="n" style="width: 50px">nein</button>
+
     </div>
 </div>
 <!-- Modal für die Freigabe-->
@@ -124,13 +139,22 @@
         });
 
     });
-    //click the share i con and call the modal
     $(document).ready(function(){
-        $("#share").click(function(){
-            $(".modal").show();
+        $(".delete").click(function(){
+            $("#deletemodal").show();
         });
         $(".close").click(function(){
-            $(".modal").hide();
+            $("#deletemodal").hide();
+        });
+
+    });
+    //click the share i con and call the modal
+    $(document).ready(function(){
+        $(".share").click(function(){
+            $("#FreigabeModal").show();
+        });
+        $(".close").click(function(){
+            $("#FreigabeModal").hide();
         });
 
     });
